@@ -14,6 +14,6 @@ No1使用了MLM预训练+FreeLB对抗训练+多模型融合
 ## 目前思路为：
 1.	采用现成大语言模型bert-chinese-base
 2.	使用MLM做领域内自回归模型做预训练（这个需要网上找一些电信诈骗之类的文本，用于做领域内学习）
-3.	用output_embedding用triplet_loss之类的pair做训练
+3.	用output_embedding（感觉一般的分类将输出类别看作相互正交的状态，但实际上并不是，可以将输出层也进行embedding，来寻找不同类别潜在的相似关系），用triplet_loss之类的pair做训练
 4.	使用softmax做最后微调
 对于训练数据要做一些处理，比如将原有脱敏数据去掉的地方换成<mask>之类的。但是要额外产生一些embedding，可能反而适得其反
